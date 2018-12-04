@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Subjects"
+    android:orientation="vertical"
+    android:background="#514363">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subjects for Section"
+        android:layout_gravity="center_horizontal"
+        android:textSize="22dp"
+        android:id="@+id/subjectNameTV"
+        android:textColor="#ffffff"
+        />
+
+    <ListView
+        android:layout_weight="8.2"
+        android:id="@+id/listViewForMember"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        />
+
+    <Button
+        android:text="Add a subject"
+        android:id="@+id/addASubject"
+        android:onClick="addASubject"
+        android:background="#F7DC6F"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+
+
+
+</LinearLayout>

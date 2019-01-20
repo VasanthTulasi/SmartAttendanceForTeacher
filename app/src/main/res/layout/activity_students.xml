@@ -25,28 +25,32 @@
         android:layout_height="0dp"
         />
 
-
-    <Button
-        android:text="Add a student"
-        android:id="@+id/addASubject"
-        android:onClick="addAStudent"
-        android:background="#F7DC6F"
-        android:textSize="15sp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.1"
-        />
-    <Button
-        android:text="Record attendance"
-        android:id="@+id/recordAttendance"
-        android:onClick="recordAttendance"
-        android:background="#BF360C"
-        android:textSize="15sp"
-        android:textColor="#ffffff"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.1"
-        />
+        android:layout_weight="0.8"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/addASubject"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F7DC6F"
+            android:onClick="addAStudent"
+            android:layout_weight="1"
+            android:text="Add a student"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/recordAttendance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#BF360C"
+            android:layout_weight="1"
+            android:onClick="recordAttendance"
+            android:text="Record attendance"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+    </LinearLayout>
 
 </LinearLayout>

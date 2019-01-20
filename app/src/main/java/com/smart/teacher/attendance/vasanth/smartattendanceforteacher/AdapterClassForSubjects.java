@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class AdapterClassForCardDetailsForMember extends ArrayAdapter<CardClass> {
+public class AdapterClassForSubjects extends ArrayAdapter<CardClass> {
 
     private Context mContext;
     private int mResource;
@@ -29,7 +29,7 @@ public class AdapterClassForCardDetailsForMember extends ArrayAdapter<CardClass>
         TextView nameForMember;
     }
 
-    public AdapterClassForCardDetailsForMember(Context context, int resource, ArrayList<CardClass> objects) {
+    public AdapterClassForSubjects(Context context, int resource, ArrayList<CardClass> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;

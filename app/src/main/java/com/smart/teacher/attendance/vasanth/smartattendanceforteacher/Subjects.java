@@ -2,11 +2,9 @@ package com.smart.teacher.attendance.vasanth.smartattendanceforteacher;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -58,7 +56,7 @@ public class Subjects extends AppCompatActivity {
 
 
 
-        final AdapterClassForCardDetailsForMember adapterForMember = new AdapterClassForCardDetailsForMember(this, R.layout.card_design_for_member, membersArrayList);
+        final AdapterClassForSubjects adapterForMember = new AdapterClassForSubjects(this, R.layout.card_design_for_subjects, membersArrayList);
         listView.setAdapter(adapterForMember);
 
         databaseReference.addChildEventListener(new ChildEventListener() {

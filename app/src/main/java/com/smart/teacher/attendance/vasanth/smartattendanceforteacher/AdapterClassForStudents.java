@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AdapterClassForCardDetailsForMemberInStudent extends ArrayAdapter<CardClass> {
+public class AdapterClassForStudents extends ArrayAdapter<CardClass> {
 
     private Context mContext;
     private int mResource;
@@ -27,7 +27,7 @@ public class AdapterClassForCardDetailsForMemberInStudent extends ArrayAdapter<C
         TextView nameForMember;
     }
 
-    public AdapterClassForCardDetailsForMemberInStudent(Context context, int resource, ArrayList<CardClass> objects) {
+    public AdapterClassForStudents(Context context, int resource, ArrayList<CardClass> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;

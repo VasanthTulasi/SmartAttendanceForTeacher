@@ -86,41 +86,7 @@ public class RegisteredStudents extends AppCompatActivity {
             }
         });
 
-        //        databaseReferenceInStudents.addChildEventListener(new ChildEventListener() {
-//
-//            @Override
-//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//
-//                String addedMember = dataSnapshot.getValue(String.class);
-//                membersArrayListInStudents.add(new CardClass(1, addedMember));
-//                namesForReferenceInStudents.add(addedMember);
-//                String addedkey = dataSnapshot.getKey();
-//                keysArrayListInStudents.add(addedkey);
-//                adapterForRegisteredStudents.notifyDataSetChanged();
-//
-//                referenceForKeyArrayListInStudents = keysArrayListInStudents;
-//                referenceForNamesArrayListInStudents = namesForReferenceInStudents;
-//            }
-//
-//            @Override
-//            public void onChildChanged(DataSnapshot dataSnapshot, String s){
-//
-//            }
-//            @Override
-//            public void onChildRemoved(DataSnapshot dataSnapshot) {
-//
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//
-//            }
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
+
     }
 
 }

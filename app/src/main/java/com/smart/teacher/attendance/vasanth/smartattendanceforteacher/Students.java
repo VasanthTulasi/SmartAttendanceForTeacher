@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -88,10 +89,7 @@ public class Students extends AppCompatActivity {
 
     @SuppressLint("RestrictedApi")
     public void addAStudent(View v){
-
         startActivity(new Intent(Students.this,RegisteredStudents.class));
-
-
         //      newStudentET = new EditText(this);
 //
        //          AlertDialog.Builder builder = new AlertDialog.Builder(Students.this);
@@ -125,6 +123,22 @@ public class Students extends AppCompatActivity {
 
     public void recordAttendance(View v){
         startActivity(new Intent(Students.this,AttendanceInTeacher.class));
+    }
+
+    public void about(View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(Students.this);
+
+        builder.setMessage("Click on any one of the student names to know his/her attendance.")
+                .setCancelable(false)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle("Instruction!");
+        alert.show();
     }
 
 }

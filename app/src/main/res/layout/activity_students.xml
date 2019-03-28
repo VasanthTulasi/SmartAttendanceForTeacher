@@ -8,18 +8,42 @@
     android:background="#514363"
     tools:context=".Students">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Students of"
-        android:layout_gravity="center_horizontal"
-        android:textSize="22dp"
-        android:id="@+id/studentsTV"
-        android:textColor="#ffffff"
-        />
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/studentsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="15dp"
+                android:text="Students of"
+                android:textColor="#ffffff"
+                android:textSize="22dp" />
+            <Button
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:text="\?"
+                android:onClick="about"
+                android:textColor="#F7DC6F"
+                android:textSize="18sp"
+                android:background="@drawable/buttonshape"
+                />
+        </RelativeLayout>
+    </LinearLayout>
 
     <ListView
-        android:layout_weight="8.2"
+        android:layout_weight="8.1"
         android:id="@+id/listViewForMemberInStudentActivity"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -28,7 +52,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"
+        android:layout_weight="0.9"
         android:orientation="horizontal">
 
         <Button

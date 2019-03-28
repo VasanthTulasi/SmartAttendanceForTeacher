@@ -43,19 +43,44 @@
         android:hint="Enter The Code Here"
         android:textColorHint="#ffffff" />
 
+    <EditText
+        android:layout_below="@id/authCode"
+        android:layout_centerHorizontal="true"
+        android:hint="Enter Number Of Classes"
+        android:ems="10"
+        android:layout_marginTop="25dp"
+        android:textColorHint="#ffffff"
+        android:id="@+id/noofclasses"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/authCode"
+        android:layout_below="@id/noofclasses"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:background="#F7DC6F"
         android:fontFamily="serif"
         android:onClick="createCode"
         android:text="Create"
         android:textColor="#000000" />
 
+    <Button
+        android:layout_below="@id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/manualAttendance"
+        android:text="   Manual Attendance   "
+        android:fontFamily="serif"
+        android:onClick="manualAttendance"
+        android:enabled="false"
+        android:layout_marginTop="25dp"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:background="#BF360C"/>
 
 
 </RelativeLayout>

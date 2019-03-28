@@ -20,7 +20,8 @@ public class AdapterClassForStudents extends ArrayAdapter<CardClass> {
     private int mResource;
     private int lastPosition = -1;
     public static int positionValue;
-    static String subjectName = "";
+    static String subjectName = "",studentName="";
+
 
     private static class ViewHolder {
         TextView numberForMember;
@@ -74,8 +75,8 @@ public class AdapterClassForStudents extends ArrayAdapter<CardClass> {
         studentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext,"Student card clicked",Toast.LENGTH_SHORT).show();
-                studentCard.setCardBackgroundColor(Color.parseColor("#81C784"));
+                studentName = Students.namesForReferenceInStudents.get(position);
+                mContext.startActivity(new Intent(mContext,CheckAttendanceOfStudents.class));
             }
         });
 

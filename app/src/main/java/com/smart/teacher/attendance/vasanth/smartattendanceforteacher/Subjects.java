@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +23,10 @@ import java.util.ArrayList;
 public class Subjects extends AppCompatActivity {
 
     public static EditText newSubjectET;
+    public static EditText pinForSubjectET;
+
     DatabaseReference databaseReference;
+    DatabaseReference databaseReferenceForPin;
 
     ArrayList<String> keysArrayList;
     ArrayList<String> namesForReference;
@@ -98,23 +102,38 @@ public class Subjects extends AppCompatActivity {
 
 
     }
+
+
     @SuppressLint("RestrictedApi")
     public void addASubject(View v){
         newSubjectET = new EditText(this);
+        pinForSubjectET = new EditText(this);
+
+        newSubjectET.setHint("Enter the subject name");
+        pinForSubjectET.setHint("Enter the secret PIN");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Subjects.this);
-        builder.setView(newSubjectET, 45, 45, 45, 45);
+
+        LinearLayout lay = new LinearLayout(this);
+        lay.setOrientation(LinearLayout.VERTICAL);
+        lay.addView(newSubjectET);
+        lay.addView(pinForSubjectET);
+        builder.setView(lay,45,45,45,45);
+
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (newSubjectET.getText().toString().equals(""))
-                    Toast.makeText(Subjects.this, "Name cannot be empty", Toast.LENGTH_SHORT).show();
+                if (newSubjectET.getText().toString().equals("") || pinForSubjectET.getText().toString().equals(""))
+                    Toast.makeText(Subjects.this, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
                 else if(namesForReference.contains(newSubjectET.getText().toString()))
                     Toast.makeText(Subjects.this, "This name is already taken. Choose another name.", Toast.LENGTH_LONG).show();
                 else {
                     Toast.makeText(Subjects.this, "Subject is added", Toast.LENGTH_SHORT).show();
                     databaseReference = FirebaseDatabase.getInstance().getReference().child("addedSubjects").child(Year.year).child(Branch.branch).child(Sections.section);
                     databaseReference.push().setValue(newSubjectET.getText().toString());
+
+                    databaseReferenceForPin = FirebaseDatabase.getInstance().getReference().child("pinForSubjects");
+                    databaseReferenceForPin.child(Year.year+Branch.branch+Sections.section+newSubjectET.getText().toString()).setValue(pinForSubjectET.getText().toString());
                 }
             }
         });
@@ -126,7 +145,7 @@ public class Subjects extends AppCompatActivity {
         });
 
         AlertDialog alert = builder.create();
-        alert.setTitle("Enter the name of the subject");
+        alert.setTitle("Enter the details");
         alert.show();
     }
 }

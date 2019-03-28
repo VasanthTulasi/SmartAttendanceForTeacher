@@ -26,7 +26,10 @@
         <activity android:name=".Branch" />
         <activity android:name=".Students" />
         <activity android:name=".AttendanceInTeacher" />
-        <activity android:name=".RegisteredStudents"></activity>
+        <activity android:name=".RegisteredStudents" />
+        <activity android:name=".CheckAttendanceOfStudents" />
+        <activity android:name=".ManualAttendance" />
+        <activity android:name=".OverallAttendance"></activity>
     </application>
 
 </manifest>

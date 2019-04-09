@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -50,17 +51,58 @@ public class Students extends AppCompatActivity {
         final AdapterClassForStudents adapterForMemberInStudents = new AdapterClassForStudents(this, R.layout.card_design_for_students, membersArrayListInStudents);
         listViewInStudents.setAdapter(adapterForMemberInStudents);
 
-        databaseReferenceInStudents.addChildEventListener(new ChildEventListener() {
-
+            databaseReferenceInStudents.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                final String addedMember = dataSnapshot.getValue(String.class);
 
-                String addedMember = dataSnapshot.getValue(String.class);
-                membersArrayListInStudents.add(new CardClass(1, addedMember));
-                namesForReferenceInStudents.add(addedMember);
-                String addedkey = dataSnapshot.getKey();
-                keysArrayListInStudents.add(addedkey);
-                adapterForMemberInStudents.notifyDataSetChanged();
+                final DatabaseReference dbToFindRollNumber = FirebaseDatabase.getInstance().getReference().child("emails");
+                dbToFindRollNumber.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            DatabaseReference dbToFindRollNumberInsideEachKey = dbToFindRollNumber.child(ds.getKey());
+                            dbToFindRollNumberInsideEachKey.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.child("Name").getValue().equals(addedMember)) {
+                                        String rollNumber = String.valueOf(dataSnapshot.child("RollNumber").getValue());
+                                        membersArrayListInStudents.add(new CardClass(1, addedMember, rollNumber));
+                                        namesForReferenceInStudents.add(addedMember);
+                                        String addedkey = dataSnapshot.getKey();
+                                        keysArrayListInStudents.add(addedkey);
+                                        adapterForMemberInStudents.notifyDataSetChanged();
+
+//                                        referenceForKeyArrayListInStudents = keysArrayListInStudents;
+//                                        referenceForNamesArrayListInStudents = namesForReferenceInStudents;
+//
+//                                        if (pb != null) {
+//                                            pb.setVisibility(View.GONE);
+//                                        }
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+//                String addedMember = dataSnapshot.getValue(String.class);
+//                membersArrayListInStudents.add(new CardClass(1, addedMember));
+//                namesForReferenceInStudents.add(addedMember);
+//                String addedkey = dataSnapshot.getKey();
+//                keysArrayListInStudents.add(addedkey);
+//                adapterForMemberInStudents.notifyDataSetChanged();
 
 
             }

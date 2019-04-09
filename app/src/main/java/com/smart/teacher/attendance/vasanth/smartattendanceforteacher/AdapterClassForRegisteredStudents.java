@@ -90,6 +90,13 @@ public class AdapterClassForRegisteredStudents extends ArrayAdapter<CardClass> {
                     dbRefToAddStudent.push().setValue(studentName);
                     mContext.startActivity(new Intent(mContext,Students.class));
                     Toast.makeText(mContext,studentName+" is added in the list of students",Toast.LENGTH_LONG).show();
+
+                    DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("attendance").child(Year.year).child(Branch.branch).child(Sections.section).child(AdapterClassForSubjects.subjectName).child(studentName);
+                    db.child("isAttendanceRecorded").setValue("false");
+
+                    db = FirebaseDatabase.getInstance().getReference().child("noOfClasses");
+                    db.child(Year.year+Branch.branch+Sections.section+AdapterClassForSubjects.subjectName).setValue(1);
+
                 }
                 else
                     Toast.makeText(mContext,"Student already exists",Toast.LENGTH_SHORT).show();

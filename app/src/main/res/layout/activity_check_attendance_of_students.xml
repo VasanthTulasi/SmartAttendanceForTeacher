@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#514363"
+    android:orientation="vertical"
+    tools:context=".CheckAttendanceOfStudents">
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select a student to see his/her attendance using the dropdown below:"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        />
+
+     <Spinner
+        android:layout_marginTop="50dp"
+        android:id="@+id/studentSpi"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dbTV3"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_marginTop="50dp"
+        android:padding="40dp"
+        android:background="@drawable/circle"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/attendedClassesTV"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/workingClassesTV"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check overall attendance of this student"
+        android:textSize="19sp"
+        android:onClick="overallAttendance"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textColor="#00FFFF"
+        />
+
+
+</LinearLayout>

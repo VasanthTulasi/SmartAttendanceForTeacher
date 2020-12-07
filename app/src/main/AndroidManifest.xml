@@ -29,7 +29,9 @@
         <activity android:name=".RegisteredStudents" />
         <activity android:name=".CheckAttendanceOfStudents" />
         <activity android:name=".ManualAttendance" />
-        <activity android:name=".OverallAttendance"></activity>
+        <activity android:name=".OverallAttendance">
+
+        </activity>
     </application>
 
 </manifest>
